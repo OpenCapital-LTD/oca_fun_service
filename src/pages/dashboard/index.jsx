@@ -55,7 +55,7 @@ const DashboardDefault = () => {
     }
     useEffect(() => {
         // Create a new WebSocket connection
-        const ws = new WebSocket('wss://be.uat.opencapital.com:3143');
+        const ws = new WebSocket('ws://be.uat.opencapital.com:3143');
       
         ws.onopen = () => {
           console.log('WebSocket connected');

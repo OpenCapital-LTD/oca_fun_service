@@ -1,2 +1,2 @@
-const ws = new WebSocket('wss://be.uat.opencapital.com:3143');
+const ws = new WebSocket('ws://be.uat.opencapital.com:3143');
 export default ws
