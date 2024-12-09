@@ -20,7 +20,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {
-    port: 3002, // Different port for each microfrontend
+    port: 3003, // Different port for each microfrontend
     hot: true,
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -32,14 +32,13 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: 'fe_expense_service',
+      name: 'fe_oca_fun',
       filename: 'remoteEntry.js', // Name of the remote entry file
       remotes: {
-        fe_oca_fun: 'fe_oca_fun@http://localhost:3001/remoteEntry.js', // Remote module and its URL
+        fe_projects_service: 'fe_projects_service@https://oca-project-tracker.vercel.app/remoteEntry.js', // Remote module and its URL
       },
       exposes: {
-        './user_setting': './src/pages/settings/settings_entry.jsx',
-        './expense_app': './src/App.jsx'
+        './oca_fun': './src/App.jsx'
       },
       shared: {
         // Share dependencies here, like React
