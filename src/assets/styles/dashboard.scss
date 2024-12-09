@@ -1,0 +1,135 @@
+@use 'mixins';
+@use 'extends';
+@use 'const';
+
+.dashboard {
+    background-color: rgb(146, 204, 255);
+    border-radius: 0;
+    height: 100vh ;
+    width: 100%;
+    background-image: url('../images/anotherbg_christmas.jpg');
+    background-position: center;
+    background-size: 140%;
+
+    .oca_logo{
+        position: absolute;
+        width: 200px;
+        z-index: 21;
+        height: 100px;
+        bottom: 19%;
+        left: 56%;
+        // border: 2px solid red;
+        background-image: url("../images/oca_logo.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 90%;
+        cursor: pointer;
+
+    }
+    .ball {
+        height: 25px;
+        margin-top: 5px;
+        animation: expandShrink 2s infinite; /* Animation applied */
+        transition: transform 0.3s; /* Smooth transform */
+        cursor: pointer;
+        opacity: 0;
+      }
+      
+      @keyframes expandShrink {
+        0% {
+          transform: scale(0.9); /* Original size */
+        }
+        50% {
+          transform: scale(1); /* Expanded size */
+        }
+        100% {
+          transform: scale(0.9); /* Back to original size */
+        }
+      }
+      
+    .ball_2{
+        position: absolute;
+        height: 30px;
+        width:30px;
+        top: 33%;
+        left: 55%;
+    }
+    .ball_3{
+        position: absolute;
+        height: 30px;
+        width:30px;
+        top: 28%;
+        left: 51%;
+    }
+    .ball_4{
+        position: absolute;
+        height: 45px;
+        width:30px;
+        top: 38%;
+        left: 51%;
+    }
+    .holder{
+        position: absolute;
+        height: 50%;
+        width: 5%;
+        top: 16%;
+        left: 49.5%;
+        display: flex;
+        flex-direction: column;
+        .row{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.hidra{
+    position: absolute;
+    z-index: 10;
+    bottom: 3%;
+    left: 54.5%;
+    height: 300px;
+    width: 300px;
+    background-image: url('../images/anotherbg_christmas.jpg');
+    background-size: 876%;
+    background-position: 60.5% 79%;
+
+}
+.close{
+    border: 1px solid grey;
+    display: flex;
+    width: 30px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.mess{
+    border: 1px solid grey;
+    height: 74%;
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 86%;
+    overflow: scroll;
+    font-size: 14px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.presenter_mode{
+    height: 350px;
+    width: 300px;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    animation: expandShrink 2s infinite; /* Animation applied */
+    transition: transform 0.3s; /* Smooth transform */
+    display: none;
+}
+.presenter_mode:hover {
+    animation-play-state: paused; /* Pauses the animation */
+    cursor: pointer;
+  }

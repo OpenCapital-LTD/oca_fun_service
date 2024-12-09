@@ -1,0 +1,292 @@
+@use 'const';
+@use 'mixins';
+
+.filler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: const.$tr_bg ;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+
+    .field_holder {
+        float: right;
+        background: white;
+        height: 100%;
+        width: 70%;
+
+        .header {
+            box-shadow: 0 1px 5px -3px const.$shadow_over_lay;
+            border-radius: 0;
+            height: 60px;
+            @include mixins.flex(space-between, center, row);
+            padding-left: 5%;
+            padding-right: 5%;
+
+            p {
+                font-weight: bold;
+            }
+
+            .controls {
+                width: 50%;
+                @include mixins.flex(flex-start, center, row);
+
+                .msg {
+                    margin-left: 20%;
+                    font-size: 20px;
+                    margin-top: 2px;
+                    @include mixins.flex(center, center, row);
+                    cursor: pointer;
+
+                }
+
+                .messageBox {
+                    border: 1px solid grey;
+                    position: absolute;
+                    width: 300px;
+                    top: 7%;
+                    margin-left: 15%;
+                    height: fit-content;
+                    z-index: 20;
+                    background-color: white;
+                    padding: 10px;
+                    box-shadow: 0 10px 15px 0px #2c2c2c2a;
+
+                    h4 {
+                        margin-top: 10px;
+                        margin-bottom: 20px;
+                    }
+                    .close{
+                        border: 1px solid grey;
+                        font-size: 20px;
+                    }
+                    p {
+                        border: 1px solid grey;
+                        overflow: scroll;
+                        padding: 20px;
+                        font-weight: normal;
+                        font-size: 14px;
+                    }
+
+                }
+
+                .al {
+                    background-color: orangered;
+                    height: 9px;
+                    width: 9px;
+                    margin-top: -15px;
+                    margin-left: -7px;
+                }
+
+            }
+
+            .close:hover {
+                cursor: pointer;
+            }
+        }
+
+        .field_container {
+            height: 75%;
+            @include mixins.flex(center, center, row);
+            padding-top: 40px;
+
+            // padding-bottom: -40px;
+            .input_container,
+            .upload_container {
+                height: 100%;
+
+            }
+
+            .input_container {
+                flex: 4;
+                font-size: 15px;
+
+                overflow: scroll;
+
+                .text_area {
+                    height: 110px;
+                    border: 2px solid red
+                }
+
+                .equivalent {
+                    text-align: left;
+                    margin-left: 230px;
+                    margin-top: -10px;
+                    margin-bottom: 15px;
+                    font-size: 12px;
+                    width: 150px;
+
+
+                }
+
+                .input_atom {
+                    @include mixins.flex(flex-start, center, row);
+                    padding-left: 10%;
+                    padding-right: 10%;
+
+                    .t_code {
+                        border: 1px solid grey;
+                        padding: 10px;
+                        position: absolute;
+                        margin-left: 12.5%;
+                        background-color: white;
+                        width: 19%;
+                        font-size: 13px;
+                        margin-top: 90px;
+
+                        p {
+                            width: 100%;
+                            cursor: pointer;
+                        }
+
+                        p:hover {
+                            background-color: rgba(128, 128, 128, 0.253);
+                        }
+
+                    }
+
+                    p {
+                        width: 40%;
+                        text-align: left;
+                    }
+
+                    .atom_label {}
+
+                    .atom_input {
+                        outline: none;
+                        height: 35px;
+                        width: 50%;
+                        padding-left: 20px;
+                        margin-bottom: 10px;
+                        display: block;
+                        border: 1px solid grey;
+                    }
+
+                    .input_box {
+                        width: 60%;
+                    }
+
+                    .select_text {
+                        width: 65%;
+                        height: 40px;
+                    }
+
+                    .cash_select {
+                        font-weight: 500;
+                        margin-left: 10px;
+                        height: 38px;
+                        width: 80px
+                    }
+
+                    .date_select {
+                        // border: 2px solid red;
+                        margin-right: 10px;
+                    }
+
+                    .atom_splitter {
+                        width: 66%;
+                        @include mixins.flex()
+                    }
+
+                }
+
+                .text_area {
+                    height: 210px;
+                    border: 2px solid red
+                }
+
+                .drop_select {
+                    border: 1px solid const.$txt_grey;
+                    position: fixed;
+                    margin-left: 12.5%;
+                    top: 425px;
+                    border-radius: 0;
+                    background-color: white;
+                    display: none;
+                    width: 20.2%;
+
+                    p {
+                        font-size: 14px;
+                        width: 92%;
+                        padding: 10px;
+                    }
+
+                    p:hover {
+                        cursor: pointer;
+                        background-color: rgba(211, 211, 211, 0.171);
+                    }
+                }
+
+            }
+
+            .upload_container {
+                flex: 2.5;
+                border-radius: 0;
+                padding: 20px;
+                background-color: const.$over_lay;
+                height: 91%;
+
+                label {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                input {
+                    display: none;
+                    background: url('./../images/fin_avatar.png') 0 0 no-repeat;
+                    background-size: 10%;
+                }
+
+                .file_holder {
+                    border: 2px dashed grey;
+                    height: 100%;
+                    width: 100%;
+                    @include mixins.flex(center, center, column);
+
+                    p {
+                        font-size: 13px;
+                    }
+
+                }
+            }
+
+            .file_holder:hover {
+                cursor: pointer;
+            }
+        }
+
+        .footer {
+            height: 10%;
+            border-top: 1px solid rgba(211, 211, 211, 0.445);
+            @include mixins.flex(flex-start, center, row);
+
+            .button {
+                border-radius: 5px;
+            }
+        }
+
+        .submit,
+        .save,
+        .cancel {
+            margin-left: 20px;
+            width: 50px;
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .submit {
+            background: const.$blue_theme;
+            color: white;
+        }
+
+        .save {
+            background: const.$background_grey;
+        }
+
+        .cancel {
+            border: 1px solid const.$background_grey;
+        }
+    }
+
+}

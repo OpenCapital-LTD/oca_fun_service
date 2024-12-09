@@ -1,0 +1,45 @@
+@use 'mixins';
+@use 'extends';
+@use 'const';
+
+.main_header {
+    overflow: hidden;
+    display: flex;
+    padding: 40px;
+    background: white;
+
+    .avatar_sec {
+        flex: 1;
+        @include mixins.flex(space-around, center, row);
+        font-weight: bold;
+        color: const.$txt_grey_c;
+
+
+    }
+    .avatar_sec:hover{
+        cursor: pointer;
+    }
+
+    .action_sec {
+        flex: 7;
+        @include mixins.flex(flex-end, center, row);
+
+        .action_but {
+            margin-left: 2%;
+            @include mixins.flex(space-between, center, column);
+            color: const.$txt_grey_c;
+            height: 70px;
+
+            .action_atom {
+                @extend %avatar_case;
+                background: const.$over_lay;
+                height: 40px;
+                width: 40px;
+            }
+        }
+        .action_but:hover{
+            cursor: pointer;
+        }
+    }
+    
+}

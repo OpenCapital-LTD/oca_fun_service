@@ -1,0 +1,337 @@
+@use 'const';
+@use 'mixins';
+@use 'extends';
+
+.settings {
+    @extend %settings_pager;
+    border: none;
+
+    .header {
+        padding-left: 5%;
+        padding-right: 5%;
+        height: fit-content;
+        margin-bottom: 60px;
+
+        h2 {
+            // float: left;
+            width: 50px;
+        }
+
+        .button {
+            @include mixins.flex(space-between, center, row);
+            background-color: const.$blue_theme;
+            color: white;
+            width: 90px;
+            font-size: 13px;
+            float: right;
+        }
+
+        .button:hover {
+            cursor: pointer;
+        }
+    }
+
+    .filter {
+        @include mixins.flex(flex-end, center, row);
+        margin-top: 20px;
+        margin-right: 5%;
+
+        input {
+            border: none;
+            border-bottom: 1px solid grey;
+            width: 30%;
+            border-radius: 0;
+            padding: 10px;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        .search_butt {
+            padding: 6px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: const.$blue_theme;
+            color: white;
+
+        }
+    }
+
+    .lister {
+        height: 60%;
+        overflow: scroll;
+        .lister_header {
+
+            @include mixins.flex(flex-start, flex-start, row);
+            border-bottom: 1px solid lightgrey;
+            margin-left: 8%;
+            margin-right: 5%;
+            min-width: 69%;
+            width: 60%;
+            border-radius: 0;
+            padding-left: 2%;
+            padding-bottom: 10px;
+
+            p {
+                min-width: 31%;
+                font-size: 14px;
+                margin-top: 40px;
+        }
+        }
+
+        .lister_row {
+            @include mixins.flex(flex-start, center, row);
+            font-size: 14px;
+            padding-left: 10%;
+            margin-top: 20px;
+
+            // padding-right: 10%;
+            .avator,
+            .g,
+            .r,
+            .s {
+                padding-right: 20px;
+                width: 22%;
+                overflow: hidden;
+
+            }
+
+            .avator {
+                @include mixins.flex(flex-start, center, row);
+
+                .init {
+                    background-color: const.$blue_theme;
+                    color: white;
+                    min-height: 40px;
+                    min-width: 40px;
+                    border-radius: 100%;
+                    @include mixins.flex(center, center, row)
+                }
+
+                .desc {
+                    margin-left: 10px;
+
+                    .greyed {
+                        font-size: 12px;
+                        color: grey;
+                    }
+                }
+
+            }
+
+            .s {
+                @include mixins.flex(flex-start, center, row);
+
+                .gr {
+                    margin-right: 10px;
+                    border: 3px solid green;
+                    width: 0;
+                    height: 0;
+                }
+            }
+        }
+
+        .lister_row:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.office {
+
+    .header_list,
+    .header_list_head {
+        margin-left: 5%;
+        width: 100%;
+        padding: 0;
+    }
+
+    .header_list_head>p,
+    .off {
+        width: 25%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header_list,
+    .header_list_head {
+        @include mixins.flex(flex-start, flex-start, row);
+        margin-top: 25px;
+
+    }
+}
+
+.categories {
+    @extend %settings_pager;
+    width: 74%;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: transparent;
+
+
+    .header {
+        margin-top: 20px;
+        @include mixins.flex(space-between, center, row);
+
+        .button {
+            background-color: const.$blue_theme;
+            color: white;
+            width: fit-content;
+            padding-left: 20px;
+            padding-right: 20px;
+            @include mixins.flex(center, center, row)
+        }
+
+        .button:hover {
+            cursor: pointer;
+        }
+    }
+
+    .lister {
+        .list_atom {
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 95%;
+            height: 45px;
+            @include mixins.flex(flex-start, center, row);
+            // border: 2px solid red;
+            border-radius: 0;
+            border-bottom: 1px solid lightgrey;
+
+            cursor: pointer;
+
+            p {
+                width: 50%;
+                font-size: 13px;
+            }
+        }
+
+        .head {
+            margin-top: 20px;
+            border-radius: 0;
+        }
+    }
+
+    .edit_categ {
+        @extend %right_pane;
+
+        .header {
+            p {
+                font-weight: 700;
+            }
+        }
+
+        .options {
+            @include mixins.flex(flex-start, center, row);
+
+        }
+
+        .opt_atoms {
+            margin-left: 20%;
+            margin-top: 30px;
+
+        }
+
+        .del {
+            width: fit-content;
+            padding: 9px;
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: const.$blue_theme;
+            color: white;
+            font-weight: 700;
+
+        }
+    }
+
+    .input_box {
+        margin-top: 20px;
+
+        input,
+        select {
+            @extend %input;
+        }
+    }
+
+    .edit {
+        align-self: flex-start;
+        @extend %button;
+        width: fit-content;
+        padding: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-top: 20px;
+    }
+
+}
+
+.expense_rules {
+    width: 75%;
+    height: 100%;
+    padding: 20px;
+    float: right;
+    background-color: white;
+
+    .header {
+        @include mixins.flex(space-between, center, row);
+        padding-left: 30px;
+        padding-right: 30px;
+
+        .button {
+            background-color: const.$blue_theme;
+            width: fit-content;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: white;
+            font-size: 14px;
+            @include mixins.flex(center, center, row)
+        }
+    }
+
+    .rules {
+        @include mixins.flex(center, center, column);
+
+        .rules_row {
+            border-bottom: 1px solid lightgray;
+            border-radius: 0;
+            width: 90%;
+            padding-left: 20px;
+            padding-right: 20px;
+            @include mixins.flex(flex-start, center, row);
+            height: 45px;
+            cursor: pointer;
+            font-size: 14px;
+
+            p {
+                width: 50%;
+
+            }
+
+
+        }
+    }
+}
+
+.e_rules {
+    .form {
+        .head {
+            margin-left: 0px !important;
+            overflow: hidden;
+
+            h2 {
+                margin-left: 30% !important;
+
+            }
+        }
+
+        .fields {
+            .holder {
+                .role_list {
+                    margin-top: 0;
+
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use 'mixins';
+@use 'extends';
+@use 'const';
+.roles{
+    .two{
+        p{
+            margin-top: 10px
+        }
+    }
+}
+.role_list{
+    @include mixins.flex(flex-start, center, row);
+    flex-wrap: wrap;
+    // margin-top: 20px;
+    margin-bottom: 10px;
+    div{
+        @include mixins.flex(center, center, row);
+        width: fit-content;
+        padding: 5px;
+        background-color: const.$background_grey;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    p, .close{
+        margin: 0;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+}

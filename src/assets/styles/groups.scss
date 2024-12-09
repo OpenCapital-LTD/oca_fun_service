@@ -1,0 +1,114 @@
+@use 'mixins';
+@use 'extends';
+@use 'const';
+
+.groups_tab {
+    @extend %side_bar;
+    .button {
+        @extend %button;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .lister {
+        @include mixins.flex(center, cetner, row);
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid lightgray;
+        border-radius: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        p {
+            width: 30%;
+            font-size: 13px;
+        }
+    }
+
+    .lister:hover {
+        cursor: pointer;
+        
+    }
+
+    .add_group {
+        position: absolute;
+        width: 40%;
+        height: 400px;
+        background-color: white;
+    }
+
+    .right_pane {
+        @extend %right_pane;
+        padding-left: 5%;
+        width: 35%;
+        height: 100%;
+        overflow: scroll;
+
+        .boxer {
+            margin-top: 30px;
+
+        }
+
+        .role_list {
+            div {
+                height: 30px;
+                @include mixins.flex(center, center, row);
+                height: 20px;
+
+                .close {
+                    margin: 0;
+                    @include mixins.flex(center, center, row);
+                    margin-top: 5px;
+                    margin-left: 5px;
+                }
+
+
+            }
+        }
+
+        .close {
+            margin-top: 20%;
+        }
+
+        .input {
+            @include mixins.flex(flex-start, center, row);
+
+            p {
+                width: 30%;
+                font-size: 13px;
+            }
+
+            input,
+            select {
+                outline: none;
+                padding-left: 15PX;
+                border-radius: 10px;
+                border: 1px solid lightgrey;
+                height: 30px;
+                margin-top: 10px;
+                width: 50%;
+            }
+
+            select {
+                height: 40px;
+            }
+
+        }
+
+        .button {
+            margin-top: 50px;
+        }
+    }
+}
+
+.add_office {
+
+    .form {
+        .fields {
+            .holder {
+                input {
+                    height: 15px;
+                }
+            }
+        }
+    }
+}

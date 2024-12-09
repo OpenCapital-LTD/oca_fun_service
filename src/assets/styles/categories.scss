@@ -1,0 +1,32 @@
+@use 'mixins';
+@use 'extends';
+@use 'const';
+
+.add_categories {
+    .form {
+        .fields {
+            .holder {}
+
+            .sub {
+                @include mixins.flex(flex-start, center, row);
+
+                p {
+                    width: fit-content;
+                    margin-left: 10px;
+                    font-weight: 400;
+                }
+                input {
+                    width: fit-content;
+                    margin: 0;
+
+                }
+
+            }
+            .buttons{
+                .sub{
+                    @include mixins.flex(center, center, row);
+                }
+            }
+        }
+    }
+}

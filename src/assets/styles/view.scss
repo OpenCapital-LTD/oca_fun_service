@@ -1,0 +1,21 @@
+@use 'extends';
+@use 'const';
+@use 'mixins';
+
+.view {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: const.$over_lay;
+    z-index: 23;
+    @include mixins.flex(center, center, row);
+    .main {
+        border: 1px solid grey;
+        height: 60%;
+        width: 40%;
+        background-color: white;
+        background-image: url("../../assets/images/oca_short_logo.png");
+    }
+}

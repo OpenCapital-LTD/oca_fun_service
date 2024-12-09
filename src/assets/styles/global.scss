@@ -1,0 +1,270 @@
+@use 'extends';
+@use 'const';
+@use 'mixins';
+
+#root {
+    background: const.$over_lay;
+    color: const.$txt_grey_c;
+
+}
+
+body {
+    overflow: hidden;
+}
+
+.main {
+    height: 75%;
+    padding: 30px;
+}
+
+.app_container {
+    height: 100%;
+    display: flex;
+
+}
+
+.right_pane {
+    flex: 5.5;
+
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    background: url("./../images/oca_short_logo.png") no-repeat;
+    background-position: center;
+    margin-top: 40%;
+    margin-bottom: 10%;
+    background-size: 100%;
+}
+
+.avatar {
+    @extend %avatar_case;
+    background-color: const.$blue_theme;
+    color: white;
+}
+
+.menuItem {}
+
+.menuItem:hover {}
+
+.button {
+    width: 80px;
+    height: 25px;
+    padding: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.edit_floater {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 10px 15px 0px #2c2c2c2a;
+}
+
+.side_pane {
+    float: right;
+    background-color: white;
+    height: 100%;
+    width: 40%;
+    border-left: 1px solid lightgrey;
+}
+.e_lister {
+    font-size: 13px;
+    overflow: scroll;
+    height: 90%;
+
+
+    .e_row {
+        @include mixins.flex(flex-start, center, row);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 1px solid grey;
+        width: 94%;
+        margin-left: 3%;
+        margin-top: 7px;
+
+        .e_d {
+            text-align: left;
+            text-wrap: nowrap;
+        }
+
+        .e_ind {
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .e_d:nth-child(1) {
+            width: 15%;
+        }
+
+        .e_d:nth-child(2) {
+            width: 15%;
+        }
+
+        .e_d:nth-child(3) {
+            width: 15%;
+        }
+
+        .e_d:nth-child(4) {
+            width: 18%;
+        }
+
+        .e_d:nth-child(5) {
+            width: 15%;
+        }
+
+        .e_d:nth-child(6) {
+            width: 10%;
+        }
+        .e_d:nth-child(7) {
+            width: 10%;
+        }
+        .e_d:nth-child(8) {
+            width: 5%;
+        }
+
+    }
+
+    .e_row:nth-child(2) {
+        margin-top: 8%;
+
+    }
+
+    .e_row:hover {
+        background-color: const.$extra_light_blue_theme;
+        cursor: pointer;
+    }
+
+    .e_header {
+        font-weight: 600;
+        font-size: 14px;
+        // background-color: rgb(120, 177, 224);
+        background-color: white;
+        border-radius: 0;
+        position: fixed;
+        width: 36%;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        margin: 0;
+        border: 0;
+
+        .e_d {
+            // text-align: center;
+
+        }
+    }
+
+    .e_header:hover {
+        background-color: white;
+    }
+  
+}
+.hover_menu{
+    border: 1px solid lightgrey;
+    background-color: white;
+    position: absolute;
+    margin-left: 2%;
+    padding: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+    z-index: 20;
+
+    p{
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+        width: 100px;
+    }   
+    p:hover{
+        background-color: rgba(207, 207, 207, 0.459);
+    }
+}
+
+
+.due_box {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 20;
+    @include mixins.flex(center, center, column);
+
+    .holder {
+        border: 1px solid grey;
+        @include mixins.flex(flex-start, center, column);
+        height: fit-content;
+        padding-bottom: 3%;
+        background-color: white;
+        width: 40%;
+        margin-left: 5%;
+
+        .question {
+            @include mixins.flex(flex-start, center, row);
+            width: 50%;
+            margin-left: 25%;
+            gap: 20%;
+
+        }
+
+        label {
+            @include mixins.flex(flex-start, center, row);
+            cursor: pointer;
+            gap: 20%;
+
+            input {
+                cursor: pointer;
+            }
+        }
+
+        p {
+            cursor: pointer;
+
+        }
+
+        .date {
+
+            margin-top: 20px;
+            width: 40%;
+
+            label {
+                @include mixins.flex(center, flex-start, column);
+
+                p {
+                    font-size: 12px;
+                }
+
+                input {
+                    outline: none;
+                    border: 1px solid grey;
+                    padding: 10px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .butt {
+            border: 1px solid const.$blue_theme;
+            padding: 10px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin-top: 20px;
+            font-weight: 500;
+            cursor: pointer;
+
+        }
+    }
+}

@@ -1,0 +1,85 @@
+@use 'extends';
+@use 'const';
+@use 'mixins';
+
+.reciepts{
+    border: 1px solid lightgrey;
+    padding:20px;
+    height: 100%;
+    margin-top: 5%;
+    background-color:white;
+    .filter{
+        border: 1px solid lightgrey;
+        width: 100px;
+        font-size: 12px;
+        padding: 10px;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        margin-left: 20px;
+    }
+    .r_holder{
+        @include mixins.flex(flex-start,flex-start,row)
+    }
+    .holder{
+        // border: 2px solid red;
+        width: 65%;
+        @include mixins.flex(flex-start,center,row);
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+    .folder{
+        border: 1px solid grey;
+        @include mixins.flex(center, center, column);
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 10px;
+        color: const.$light_orange_theme;
+        cursor: pointer;
+        p{
+            font-size: 13px;
+        }
+    }
+    .lister{
+        border-left: 1px solid grey;
+        border-radius: 0;
+        padding-left: 10px;
+        max-height: 400px;
+        width: 30%;
+        margin-top: 30px;
+        margin-left: 1%;
+        overflow: scroll;
+        h4{
+            position: fixed;
+            width: 23%;
+            background-color: white;
+            border-radius: 0;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        .record{
+            border: 1px solid grey;
+            @include mixins.flex(flex-start,center,row);
+            padding: 10px;
+            margin-top: 10px;
+            p{
+                margin-left:20px
+            }
+        }
+        
+    
+        .record:hover{
+            background: rgba(211, 211, 211, 0.151);
+            cursor: pointer;
+        }
+        .record:nth-child(2){
+            margin-top: 15%;
+        }
+    }
+    .filter:hover{
+        cursor: pointer;
+
+    }
+}
