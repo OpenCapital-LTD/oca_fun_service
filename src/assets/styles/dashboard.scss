@@ -106,20 +106,22 @@
 }
 .mess{
     border: 1px solid grey;
-    height: 74%;
+    height: 87%;
     margin-top: 5%;
     margin-left: 5%;
-    width: 86%;
+    width: 84%;
     overflow: scroll;
-    font-size: 14px;
-    padding: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bolder;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
 .presenter_mode{
-    height: 350px;
-    width: 300px;
+    height: 400px;
+    width: 350px;
     position: absolute;
     right: 10%;
     top: 10%;

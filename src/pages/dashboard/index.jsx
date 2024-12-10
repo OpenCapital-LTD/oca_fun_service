@@ -21,6 +21,7 @@ const DashboardDefault = () => {
     const [emojis, setEmojis] = useState([])
     const [balls, setBalls] = useState([1,2,3,4,5,6,7,8,9,10, 11,12,13,14,15,16,17,18,19,20,21,22,23,24])
     const [message, setMessage] = useState('')
+    const [used, setUsed] = useState([])
     const range = (start, stop, step = 1) => 
     Array.from({ length: Math.ceil((stop - start) / step) }, (_, i) => start + i * step);
 
@@ -100,7 +101,15 @@ const DashboardDefault = () => {
     }
     return c
   }
+  useEffect(()=>{
+    // alert()
+    window.document.addEventListener('keydown', (e)=>{
+        if(e.key == 'Escape'){
+            setPresenter(false)
+        }
 
+    })
+})
     return (
         <div className="dashboard">
             <Smoke class_name = 'chimney'/>
@@ -173,11 +182,8 @@ const DashboardDefault = () => {
             <div className='presenter_mode' style={{
                 display: presenter ? 'block' : 'none'
             }}>
-                <div className='close' onClick={()=>{
-                    setPresenter(false)
-                }}>x</div>
                 <div className='mess'>
-                {message}
+                {message} one two three is the best way i've ever lerarned to do things in a way here
                 </div>
                 </div>
             <div className='holder'>
@@ -191,10 +197,21 @@ const DashboardDefault = () => {
                 return (
                         // ((count < 87 || count > 91) && (count < 101 || count > 105) && (count < 116 || count > 120) && (count < 127 || count > 130) ) ? <img className={`ball b${l}`} src={list[index]} alt="ball" /> : <div style={{minWidth:'10px', backgroundColor:'white'}}></div>
                         (!(count > 250 && count < 254) ) ? <img key={count} id={`b_${count}`} className={`ball b_${count}`} src={list[index]} alt="ball" onClick={()=>{
-                            
                             setPresenter(true)
                             let ind = Math.floor(Math.random() * messages.length)
-                            console.log(messages)
+
+                            while(used.includes(messages[ind])){
+                            ind = Math.floor(Math.random() * messages.length)
+                            }
+                            if(used.length != messages.length-1){
+                                setUsed(l=>{
+                                    return [...l, messages[ind]]
+                                })
+                            }else{
+                                setUsed(l=>{
+                                    return []
+                                })
+                            }
                             setMessage(messages[ind])
 
                         }} 
