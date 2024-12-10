@@ -183,7 +183,7 @@ const DashboardDefault = () => {
                 display: presenter ? 'block' : 'none'
             }}>
                 <div className='mess'>
-                {message} one two three is the best way i've ever lerarned to do things in a way here
+                {message}
                 </div>
                 </div>
             <div className='holder'>
